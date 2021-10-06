@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const App = (props) => {
   const [state, setState] = useState(props);
   const { name, price } = state;
+  useEffect(() => {
+    console.log("takashi");
+  }, []);
+  const renderPeriod = () => {
+    console.log("renderPeriod renders pediod.");
+    return ".";
+  };
   return (
     <>
       <p>
-        現在の{name}は{price}円です。
+        現在の{name}は{price}円です{renderPeriod()}
       </p>
       <button onClick={() => setState({ ...state, price: price + 1 })}>
         +1
