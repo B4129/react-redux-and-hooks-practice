@@ -1,4 +1,5 @@
 import React from "react";
+import { DELETE_EVENT } from "../actions";
 export const Event = ({ dispatch, event }) => {
   const { id, title, body } = event;
   const handleClickButton = () => {
@@ -6,7 +7,7 @@ export const Event = ({ dispatch, event }) => {
       `イベント(id=${id})を本当に削除しても良いですか？`
     );
     if (result) {
-      dispatch({ type: "DELETE_EVENT", id });
+      dispatch({ type: DELETE_EVENT, id });
     }
   };
   return (

@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react";
+import { CREATE_EVENT, DELETE_ALL_EVENTS } from "../actions";
 export const EventForm = (props) => {
   const { state, dispatch } = props;
   const [title, setTitle] = useState("");
@@ -6,7 +7,7 @@ export const EventForm = (props) => {
   const addEvent = useCallback((e) => {
     e.preventDefault();
     dispatch({
-      type: "CREATE_EVENT",
+      type: CREATE_EVENT,
       title,
       body,
     });
@@ -19,7 +20,7 @@ export const EventForm = (props) => {
     const result = window.confirm(
       "全てのイベントを本当に削除しても良いですか？"
     );
-    if (result) dispatch({ type: "DELETE_ALL_EVENT" });
+    if (result) dispatch({ type: DELETE_ALL_EVENTS });
   };
 
   return (
